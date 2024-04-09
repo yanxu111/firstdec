@@ -5,10 +5,7 @@ import store from './stroe/index.js'
 import * as fillters from './fillters/index.js'
 //会员token认证 全局加载使用
 import token from './static/js/utils/user_token.js'
-<<<<<<< HEAD
-=======
 import config from "./static/js/config/index.js"
->>>>>>> c33a89b (点餐)
 // console.log(Object.keys(fillters)) //过滤器文件fillters里面所有的函数名
 Object.keys(fillters).forEach(key=>{
 	// key:函数名,fillters[key]:函数体
@@ -17,10 +14,7 @@ Object.keys(fillters).forEach(key=>{
 Vue.config.productionTip = false
 //注册
 Vue.prototype.$token=token
-<<<<<<< HEAD
-=======
 Vue.prototype.$config=config
->>>>>>> c33a89b (点餐)
 App.mpType = 'app'
 
 const app = new Vue({

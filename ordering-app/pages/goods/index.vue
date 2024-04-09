@@ -97,13 +97,7 @@
 				goodsId: "", //菜品ID
 				tableCode: "", //桌号（用于堂内扫码点餐）
 				goodsAmount: 0, //点餐的数量（菜品展示显示、菜品详情显示、购物车显示
-<<<<<<< HEAD
-				isCartShow: false, //购物车组件显示隐藏
-=======
 				isCartShow: false //购物车组件显示隐藏
-
-
->>>>>>> c33a89b (点餐)
 			}
 		},
 		onLoad(opts) {
@@ -120,11 +114,7 @@
 					this.getCart({
 						branch_shop_id: this.branchShopId,
 						table_code: this.tableCode,
-<<<<<<< HEAD
-						success: () => {
-=======
 						success:()=>{
->>>>>>> c33a89b (点餐)
 							//商家菜品分类
 							this.getShopGoods({
 								branch_shop_id: this.branchShopId,
@@ -138,19 +128,11 @@
 						}
 					})
 				}),
-<<<<<<< HEAD
-
-=======
->>>>>>> c33a89b (点餐)
 				//判断桌号是否存在
 				this.SET_TABLE_CODE({
 					isTableCode: this.tableCode
 				})
-<<<<<<< HEAD
-  		},
-=======
 		},
->>>>>>> c33a89b (点餐)
 		methods: {
 			// 菜品商家切换
 			changeTag(goodsAction, businessAction) {
@@ -160,11 +142,7 @@
 			},
 			...mapMutations({
 				"SET_TABLE_CODE": "cart/SET_TABLE_CODE", //判断桌号是否存在
-<<<<<<< HEAD
-				"SET_GOODS_AMOUNT": "goods/SET_GOODS_AMOUNT" //更新菜品数量
-=======
 				"SET_GOODS_AMOUNT":"goods/SET_GOODS_AMOUNT" //更新菜品数量
->>>>>>> c33a89b (点餐)
 			}),
 			...mapActions({
 				getShopInfo: 'goods/getShopInfo', ////获取商家信息
@@ -193,10 +171,6 @@
 					this.goodsAmount = val.amount
 				}
 			},
-<<<<<<< HEAD
-
-=======
->>>>>>> c33a89b (点餐)
 			//判断会员是否登录；gid,newMeal,mealItems：用于开发购物车所需参数
 			incAmount(gid, newMeal, mealItems) {
 				if (uni.getStorageSync("isLogin")) {
@@ -299,11 +273,7 @@
 							// 是相同菜品
 							isGoodsMeal = true
 							this.goodsItems[i].goods[j].amount = parseInt(this.goodsItems[i].goods[j].amount) - 1
-<<<<<<< HEAD
-							this.goodsAmount = this.goodsItems[i].goods[j].amount
-=======
 							this.goodsAmount=this.goodsItems[i].goods[j].amount
->>>>>>> c33a89b (点餐)
 							this.setCartAmount({
 								cartData: this.goodsItems[i].goods[j],
 								branch_shop_id: this.branchShopId
@@ -314,11 +284,7 @@
 				if (!isGoodsMeal) {
 					//自定义套餐
 					this.setCartAmount({
-<<<<<<< HEAD
-						cartData: {
-=======
 						cartData: {  
->>>>>>> c33a89b (点餐)
 							gid: gid,
 							new_meal_items: newMeal,
 							meal_type: "1"
@@ -335,24 +301,15 @@
 				this.SET_GOODS_AMOUNT({
 					gid: gid,
 					new_meal_items: newMeal,
-<<<<<<< HEAD
-					amount: amount
-=======
 					amount:amount
->>>>>>> c33a89b (点餐)
 				})
 				//更新购物车中数量
 				this.setAmount({
 					cartData: {
 						gid: gid,
 						new_meal_items: newMeal,
-<<<<<<< HEAD
-						amount: amount
-					},
-=======
 						amount:amount
  					},
->>>>>>> c33a89b (点餐)
 					branch_shop_id: this.branchShopId
 				})
 			},
@@ -386,17 +343,6 @@
 				})
 			},
 			//提交订单跳转到订单页面
-<<<<<<< HEAD
-			submitPayInfo() {
-				if (this.goodsAmount > 0) {
-					uni.navigateTo({
-						url: `/user_pages/order/index?branch_shop_id=${this.branchShopId}&table_code=${this.tableCode}&branch_shop_name=${this.shopInfo.branch_shop_name}`
-					})
-				} else {
-					uni.showToast({
-						title: "请先添加菜品",
-						icon: "none"
-=======
 			submitPayInfo(){
 				if(this.amountCount>0){
 					uni.navigateTo({
@@ -406,7 +352,6 @@
 					uni.showToast({
 						title:"请先添加菜品",
 						icon:"none"
->>>>>>> c33a89b (点餐)
 					})
 				}
 

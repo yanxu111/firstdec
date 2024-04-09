@@ -54,11 +54,6 @@ export default{
 		// 获取商家详情信息
 		getShopInfo(context,payload){
 			getShopInfoData(payload).then(res=>{
-<<<<<<< HEAD
-				// console.log(res.data)
-=======
-				console.log(res.data)
->>>>>>> c33a89b (点餐)
  				if(res.code===200){
 					context.commit("SET_SHOP_INFO",{shopInfo:res.data})
 				}
@@ -77,11 +72,6 @@ export default{
 		getShopArea(context,payload){
 			getShopAreaData(payload).then(res=>{
 				if(res.code===200){
-<<<<<<< HEAD
-					// console.log(res.data)
-=======
-					console.log(res.data)
->>>>>>> c33a89b (点餐)
 					context.commit("SHOP_AREA",{shopArea:res.data})
 				}
 			})

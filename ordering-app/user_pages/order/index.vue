@@ -103,12 +103,8 @@
 		methods: {
 			...mapActions({
 				getShopArea: "business/getShopArea", //获取商家点菜区域
-<<<<<<< HEAD
-				submitOrder: "order/submitOrder" //提交订单信息获取返回数据进行支付
-=======
 				submitOrder: "order/submitOrder", //提交订单信息获取返回数据进行支付
 				wechatPayOrder:"order/wechatPayOrder"  //微信小程序支付订单接口
->>>>>>> c33a89b (点餐)
 			}),
 			...mapMutations({
 				"SET_TABLE_CODE": "cart/SET_TABLE_CODE" //设置isTableCode是否自提
@@ -137,9 +133,6 @@
 							if(res.data.true_total===this.total){
 								let trueTotal=res.data.true_total
 								let orderNum=res.data.ordernum
-<<<<<<< HEAD
-								console.log(trueTotal,trueTotal)
-=======
 								// 只有是微信小程序平台的时候才会执行此段程序,调用微信小程序接口
 								 //#ifdef MP-WEIXIN
 								
@@ -150,7 +143,6 @@
 									price:trueTotal //金额
 								})
 								//#endif
->>>>>>> c33a89b (点餐)
 							}else{
 								uni.showToast({
 									title:"当前金额存在异议，请重新进入程序点餐",

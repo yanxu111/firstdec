@@ -153,17 +153,9 @@
 							is_meal: "1", //是否为套餐 1：套餐 0：非套餐
 							meal_type: "1", //套餐类型 1：固定套餐
 							new_meal_items: this.mealGid, //套餐里菜品的gid
-<<<<<<< HEAD
 							amountInput: false, //购物车数量input是否显示/切换view文本 解决卡顿问题
 							amountInputFocus: false //切换购物车数量input自动获取焦点
 						}
-						// console.log(cartData)
-						// return
-=======
-							isAmountInput: false, //购物车数量input是否显示/切换view文本 解决卡顿问题
-							isAmountInputFocus: false //切换购物车数量input自动获取焦点
-						}
->>>>>>> c33a89b (点餐)
 						this.saveCart({
 							cartData: cartData,
 							success: () => {

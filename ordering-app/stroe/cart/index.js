@@ -51,11 +51,7 @@ export default {
 		//从数据库中获取当前分店添加购物车的菜品
 		["GET_CART"](state, payload) {
 			state.cartData = payload.cartData
-<<<<<<< HEAD
-			// 循环菜品相加显示在购物车中
-=======
  			// 循环菜品相加显示在购物车中
->>>>>>> c33a89b (点餐)
 			state.cartAmount = 0
 			if (state.cartData.length > 0) {
 				for (let i = 0; i < state.cartData.length; i++) {
@@ -75,10 +71,6 @@ export default {
 		},
 		// 菜品详情和购物车菜品对比
 		["SET_GOODS_AMOUNT"](state, payload) {
-<<<<<<< HEAD
-			// console.log(state.cartData)
-=======
->>>>>>> c33a89b (点餐)
 			if (state.cartData.length > 0) {
 				for (let i = 0; i < state.cartData.length; i++) {
 					let cartMealItems = (state.cartData[i].new_meal_items && state.cartData[i].new_meal_items.length >
@@ -111,11 +103,7 @@ export default {
 		},
 		// 减少/清空购物车中菜品数量
 		["SET_CART_GOODS_AMOUNT"](state, payload) {
-<<<<<<< HEAD
-			if (state.cartData.length > 0) {
-=======
  			if (state.cartData.length > 0) {
->>>>>>> c33a89b (点餐)
 				state.cartAmount = 0
 				let newMeal = (payload.cartData.new_meal_items && payload.cartData.new_meal_items.length > 0) ? JSON
 					.stringify(payload.cartData.new_meal_items) : ""
@@ -132,13 +120,8 @@ export default {
 						if (state.cartData[i].amount <= 0) {
 							//当菜品数量小于1时，删除该菜品
 							state.cartData.splice(i--, 1)
-<<<<<<< HEAD
-						}
- 						if (state.cartData[i] && state.cartData[i].meal_items && state.cartData[i].meal_items.length > 0) {
-=======
 						}						
 						if (state.cartData[i] && state.cartData[i].meal_items && state.cartData[i].meal_items.length > 0) {
->>>>>>> c33a89b (点餐)
 							// 如果是套餐
 							for (let j = 0; j < state.cartData[i].meal_items.length; j++) {
 								state.cartData[i].meal_items[j].amount = state.cartData[i].meal_items[j].dis_amount *
@@ -169,28 +152,6 @@ export default {
 			Vue.set(state.cartData, payload.index, state.cartData[payload.index])
 		},
 		//输入数量更新购物车中的的菜品数量
-<<<<<<< HEAD
-		["SET_AMOUNT"](state, payload) {
-			state.cartAmount = 0
-			let amount = payload.cartData.amount
-			// 拿到输入的数量先做判断 1:如果输入非法字符强制为空,如果输入0或者空格 强制为1
-			amount = amount.toString().replace(/[^\d]/g, "")
-			if (!amount || amount === "0") {
-				amount = 1
-			}
-			if (state.cartData.length > 0) {
-				let newMeal = (payload.cartData.new_meal_items && payload.cartData.new_meal_items.length > 0) ? JSON
-					.stringify(payload.cartData.new_meal_items) : ""
-				for (let i = 0; i < state.cartData.length; i++) {
-					let cartNewMeal = (state.cartData[i].new_meal_items && state.cartData[i].new_meal_items.length >
-						0) ? JSON.stringify(state.cartData[i].new_meal_items) : ""
-					if (payload.cartData.gid === state.cartData[i].gid && newMeal === cartNewMeal) {
-						state.cartData[i].amount = parseInt(amount)
-						if (state.cartData[i].meal_items.length > 0) {
-							for (let j = 0; j < state.cartData[i].meal_items.length; j++) {
-								state.cartData[i].meal_items[j].amount = state.cartData[i].meal_items[j].dis_amount *
-									state.cartData[i].amount
-=======
 		["SET_AMOUNT"](state,payload){
 			state.cartAmount=0
 			let amount=payload.cartData.amount
@@ -208,7 +169,6 @@ export default {
 						if(state.cartData[i].meal_items.length>0){
 							for(let j=0;j<state.cartData[i].meal_items.length;j++){
 								state.cartData[i].meal_items[j].amount=state.cartData[i].meal_items[j].dis_amount*state.cartData[i].amount
->>>>>>> c33a89b (点餐)
 							}
 						}
 					}
@@ -239,10 +199,6 @@ export default {
 				new_meal_items: (payload.cartData.new_meal_items && payload.cartData.new_meal_items.length > 0) ?
 					JSON.stringify(payload.cartData.new_meal_items) : "" //套餐里菜品的gid
 			}
-<<<<<<< HEAD
-=======
-			// console.log(data)
->>>>>>> c33a89b (点餐)
 			saveCartData(data).then(res => {
 				//显示在客户端页面上的购物车数据
 				if (res.code === 200) {
@@ -267,29 +223,18 @@ export default {
 				platform: context.rootState.system.plateform,
 				...payload
 			}).then(res => {
-<<<<<<< HEAD
- 				if (res.code === 200) {
-=======
 					context.state.cartData=[]
 					context.state.cartAmount=0
 				if (res.code === 200) {
->>>>>>> c33a89b (点餐)
 					// 为获取到的数据添加是否显示文本框和文本框获取焦点的属性
 					for (let i = 0; i < res.data.length; i++) {
 						res.data[i].amountInput = false //是否显示input 默认：return false;
 						res.data[i].amountInputFocus = false //input是否获取焦点 默认：return false;
-<<<<<<< HEAD
-
-=======
->>>>>>> c33a89b (点餐)
 					}
 					context.commit("GET_CART", {
 						cartData: res.data
 					})
-<<<<<<< HEAD
-					
-=======
->>>>>>> c33a89b (点餐)
+
 				}
 				if (payload.success) {
 					payload.success()
@@ -418,17 +363,6 @@ export default {
 					}
 					if (state.cartData[i].is_meal === '1') { //套餐：算套餐里菜品的总价
 						for (let j = 0; j < state.cartData[i].meal_items.length; j++) {
-<<<<<<< HEAD
-							// 如果套餐数据里的套餐价格meal_price存在,则使用套餐价格计算,如果不存在,则使用price价格计算
-							if (state.cartData[i].meal_items[j].meal_price) {
-								mealTotal += parseFloat(state.cartData[i].meal_items[j].meal_price * state.cartData[i]
-									.meal_items[j].amount)
-							} else {
-								mealTotal += parseFloat(state.cartData[i].meal_items[j].price * state.cartData[i]
-									.meal_items[j].amount)
-							}
-
-=======
 							if(state.cartData[i].meal_items[j].meal_price){
 								mealTotal += parseFloat(state.cartData[i].meal_items[j].meal_price * state.cartData[i]
 									.meal_items[j].amount)
@@ -436,8 +370,6 @@ export default {
 								mealTotal += parseFloat(state.cartData[i].meal_items[j].price * state.cartData[i]
 									.meal_items[j].amount)
 							}
-							
->>>>>>> c33a89b (点餐)
 							// 如果桌号不存在则说明是外卖,需要计算包装费 否则不需要
 							if (state.isTableCode) {
 								mealPackPricetotal += parseFloat(state.cartData[i].meal_items[j].amount * state
@@ -447,32 +379,19 @@ export default {
 					}
 				}
 				isTotal = goodsTotal + mealTotal + goodsPackPriceTotal + mealPackPricetotal
-<<<<<<< HEAD
-
-=======
->>>>>>> c33a89b (点餐)
 				isTotal = parseFloat(isTotal.toFixed(2))
 			}
 			return isTotal
 		},
 		// 包装费总价格
-<<<<<<< HEAD
-		packTotal(state) {
-			let packTotal = 0; //包装费总价格
-=======
 		packTotal(state){
 			let packTotal=0;//包装费总价格
->>>>>>> c33a89b (点餐)
 			let goodsPackPriceTotal = 0 //菜品单品打包费的总价格
 			let mealPackPricetotal = 0 //套餐打包费的总价格
 			if (state.cartData.length > 0) {
 				// console.log(state.isTableCode)
 				for (let i = 0; i < state.cartData.length; i++) {
-<<<<<<< HEAD
-					if (state.cartData[i].is_meal === '0') {
-=======
 					if (state.cartData[i].is_meal === '0') { 
->>>>>>> c33a89b (点餐)
 						// 如果桌号不存在则说明是外卖,需要计算包装费 否则不需要
 						if (state.isTableCode) {
 							goodsPackPriceTotal += parseFloat(state.cartData[i].amount * state.cartData[i].pack_price)

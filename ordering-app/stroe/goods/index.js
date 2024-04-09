@@ -29,11 +29,7 @@ export default {
 		},
 		["SET_GOODS_ITEMS"](state, payload) {
 			state.goodsItems = payload.goodsItems
-<<<<<<< HEAD
-  		},
-=======
 		},
->>>>>>> c33a89b (点餐)
 		//菜品详情组件获取菜品详情数据
 		["SET_GOODS_DETAILS"](state, payload) {
 			state.goodsDetails = payload.goodsDetails
@@ -72,11 +68,8 @@ export default {
 			state.goodsItems[payload.index].goods[payload.index2].amountInput = true
 			state.goodsItems[payload.index].goods[payload.index2].amountInputForcus = true
 			// 解决视图不更新问题
-<<<<<<< HEAD
+
 			// console.log(state.goodsItems[payload.index].goods[payload.index2])
-=======
-			console.log(state.goodsItems[payload.index].goods[payload.index2])
->>>>>>> c33a89b (点餐)
 			Vue.set(state.goodsItems[payload.index].goods, payload.index2, state.goodsItems[payload.index].goods[payload
 				.index2])
 		},
@@ -128,11 +121,7 @@ export default {
 		// 获取商家菜品分类信息
 		getShopGoods(context, payload) {
 			getShopGoodsData(payload).then(res => {
-<<<<<<< HEAD
- 				if (res.code === 200) {
-=======
 				if (res.code === 200) {
->>>>>>> c33a89b (点餐)
 					for (let i = 0; i < res.data.length; i++) {
 						if (i === 0) {
 							res.data[i].active = true
@@ -156,11 +145,8 @@ export default {
 		//获取商家菜品详情
 		getGoodsItemsInfo(context, payload) {
 			getGoodsItemsInfoData(payload).then(res => {
-<<<<<<< HEAD
-  				if (res.code === 200) {
-=======
+
 				if (res.code === 200) {
->>>>>>> c33a89b (点餐)
 					//由于接口返回数据优先，部分功能受限，这里需要自组一些初始化数据对后续开发进行使用
 					// 添加菜品top,left,position用于定位菜品信息上方分类内容
 					for (let i = 0; i < res.data.length; i++) {
@@ -190,22 +176,12 @@ export default {
 					context.commit("SET_GOODS_ITEMS", {
 						goodsItems: res.data
 					})
-<<<<<<< HEAD
-				 //root:return true; 跨模块执行方法
-				 //页面一家在跨模块执行cart：vuex中的数量赋值，实现页面已加载就把购物车中的数量赋值给页面
-				 context.commit("cart/SET_GOODS_AMOUNT", {
-				 	goodsItems: res.data
-				 }, {
-				 	root: true
-				 })
-=======
 					//页面一家在跨模块执行cart：vuex中的数量赋值，实现页面已加载就把购物车中的数量赋值给页面
 					context.commit("cart/SET_GOODS_AMOUNT", {
 						goodsItems: res.data
 					}, {
 						root: true
 					}) //root:return true; 跨模块执行方法
->>>>>>> c33a89b (点餐)
 				} else {
 					context.commit("SET_GOODS_ITEMS", {
 						goodsItems: []

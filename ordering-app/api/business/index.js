@@ -5,10 +5,7 @@ import config from "../../static/js/config/index.js"
 import {request} from "../../static/js/utils/request.js"
 // 显商家列表
 export function getShopData(data){
-<<<<<<< HEAD
-=======
-	console.log(data)
->>>>>>> c33a89b (点餐)
+
 	return request(config.baseApi+"/api/v1/business/shop","get",data)
 }
 //获取商家详细详情
